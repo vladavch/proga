@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+int main() {
+    setlocale(LC_ALL, "Russian");
+    float A[100], B[100], C[100];
+    float minb;
+    int n, i;
+    printf("Введите количество элементов n: ");
+    scanf("%d", &n);
+    printf("Введите элементы массива A: ");
+    for (i=0; i<n; i++)
+    scanf("%f", &A[i]);
+
+    printf("Введите элементы массива C: ");
+    for (i=0; i<n; i++)
+    scanf("%f", &C[i]);
+
+    for (i=0; i<n; i++)
+        B[i]=pow(exp(C[i]), 0.5)-(A[i]*A[i]);
+
+    minb=B[0];
+    for (i=1; i<n; i++)
+        if (B[i]<minb)
+        minb=B[i];
+    printf("минимальное значение = %.4f\n", minb);
+    for (i=0; i<n; i++)
+        if (B[i]==minb)
+        printf("номер наименьшего из значений: %d ", i+1);
+}
