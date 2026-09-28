@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <locale.h>
+#include <malloc.h>
+#include <math.h>
+int main() {
+    setlocale(LC_ALL, "Russian");
+    float X[100], Y[100];
+    int n, k=0;
+    printf("Введите количество элементов n: ");
+    scanf("%d", &n);
+    for (int i=0; i<n; i++) {
+            printf("X[%d] = ", i);
+            scanf("%f", &X[i]);
+        if (X[i]<=0) {
+            Y[i]=0;
+            if (X[i]==0) {
+                k++;
+            }
+        }
+        else {
+            Y[i]=pow(X[i], 2);
+                    }
+    printf("Массив Y: Y[%d] = %.2f\n", i, Y[i]);
+    }
+    printf("Количество нулей: %d\n", k);
+    return 0;
+}
