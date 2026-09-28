@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+int main() {
+    setlocale(LC_ALL, "Russian");
+    float A[100];
+    float eps;
+    int i, n, fl;
+    printf("количество элементов n: ");
+    scanf("%d", &n);
+    printf("элементы массива A: ");
+    for (i=0; i<n; i++)
+    scanf("%f", &A[i]);
+    printf("введите велечину eps: ");
+    scanf("%f", &eps);
+    i=0;
+    fl=1;
+    while (i<n && fl) {
+        if (fabs(A[i])<eps)
+            fl=0;
+        else
+            i+=1;
+    }
+    if (fl==0)
+        printf("найден элемент модуль которого меньше %.2f, номер элемента %d\n", eps, i+1);
+    else
+        printf("в массиве нет элементов, у котррых модуль меньше %.2f\n", eps);
+}
